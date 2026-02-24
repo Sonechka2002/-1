@@ -1,0 +1,21 @@
+
+
+import java.util.Scanner;
+
+public class Program {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Введите ваше имя: ");
+        String name = scanner.nextLine();
+
+        System.out.print("Введите ваш возраст: ");
+        int age = scanner.nextInt();
+
+        int ageIn10Years = age + 10;
+
+        System.out.println("Привет, " + name + "! Через 10 лет вам будет " + ageIn10Years + " лет.");
+
+        scanner.close();
+    }
+}
