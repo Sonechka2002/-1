@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+public class Program {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Курсы валют
+        double usdRate = 90.5;
+        double euroRate = 97.7;
+
+        System.out.print("Введите сумму в рублях: ");
+        int rubles = scanner.nextInt();
+
+        double inUsd = rubles / usdRate;
+        double inEuro = rubles / euroRate;
+
+        System.out.printf("В долларах: %.2f\n", inUsd);
+        System.out.printf("В евро: %.2f\n", inEuro);
+
+        scanner.close();
+    }
+}
