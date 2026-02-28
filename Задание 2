@@ -1,0 +1,164 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class JavaTasks {
+
+    public static void main(String[] args) {
+        // Вызов всех методов для демонстрации (кроме task5, так как он требует ввода)
+        task1();
+        task2();
+        task3();
+        task4();
+        // task5(); // Раскомментируйте для проверки ввода
+        task6();
+    }
+
+    /**
+     * Задача 1: Сумма и среднее арифметическое
+     * Создай массив из 10 целых чисел. Напиши программу, которая вычисляет
+     * сумму всех элементов и их среднее арифметическое значение.
+     */
+    public static void task1() {
+        System.out.println("--- Задача 1 ---");
+        int[] numbers = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
+        int sum = 0;
+
+        for (int num : numbers) {
+            sum += num;
+        }
+
+        double average = (double) sum / numbers.length;
+
+        System.out.println("Сумма: " + sum);
+        System.out.println("Среднее арифметическое: " + average);
+        System.out.println();
+    }
+
+    /**
+     * Задача 2: Поиск максимума и минимума
+     * Дан массив случайных чисел (например, 15 элементов). Найди в нем самое
+     * большое и самое маленькое число и выведи их в консоль.
+     */
+    public static void task2() {
+        System.out.println("--- Задача 2 ---");
+        int[] numbers = {45, 12, 89, 3, 67, 34, 91, 22, 56, 8, 73, 15, 40, 62, 29};
+        
+        int max = numbers[0];
+        int min = numbers[0];
+
+        for (int i = 1; i < numbers.length; i++) {
+            if (numbers[i] > max) {
+                max = numbers[i];
+            }
+            if (numbers[i] < min) {
+                min = numbers[i];
+            }
+        }
+
+        System.out.println("Максимальное число: " + max);
+        System.out.println("Минимальное число: " + min);
+        System.out.println();
+    }
+
+    /**
+     * Задача 3: Фильтрация списка (ArrayList)
+     * Создай ArrayList<String> и добавь в него 5-7 разных имен. Напиши метод,
+     * который перебирает список и выводит только те имена, которые начинаются на букву "А".
+     */
+    public static void task3() {
+        System.out.println("--- Задача 3 ---");
+        ArrayList<String> names = new ArrayList<>();
+        names.add("Алексей");
+        names.add("Борис");
+        names.add("Анна");
+        names.add("Виктор");
+        names.add("Андрей");
+        names.add("Дмитрий");
+        names.add("Алина");
+
+        System.out.print("Имена на букву 'А': ");
+        for (String name : names) {
+            if (name.startsWith("А")) {
+                System.out.print(name + " ");
+            }
+        }
+        System.out.println("\n");
+    }
+
+    /**
+     * Задача 4: Четные числа в новый список
+     * Дан массив целых чисел. Создай из него ArrayList, в который попадут только
+     * четные числа из исходного массива. Выведи полученный список на экран.
+     */
+    public static void task4() {
+        System.out.println("--- Задача 4 ---");
+        int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
+        ArrayList<Integer> evenNumbers = new ArrayList<>();
+
+        for (int num : numbers) {
+            if (num % 2 == 0) {
+                evenNumbers.add(num);
+            }
+        }
+
+        System.out.println("Четные числа: " + evenNumbers);
+        System.out.println();
+    }
+
+    /**
+     * Задача 5: Проверка на наличие элемента
+     * Напиши программу, которая принимает от пользователя число (через Scanner)
+     * и проверяет, есть ли оно в заранее заданном массиве.
+     */
+    public static void task5() {
+        System.out.println("--- Задача 5 ---");
+        int[] numbers = {5, 10, 15, 20, 25, 30};
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Введите число для поиска: ");
+        if (scanner.hasNextInt()) {
+            int target = scanner.nextInt();
+            int index = -1;
+
+            for (int i = 0; i < numbers.length; i++) {
+                if (numbers[i] == target) {
+                    index = i;
+                    break;
+                }
+            }
+
+            if (index != -1) {
+                System.out.println("Элемент найден! Индекс: " + index);
+            } else {
+                System.out.println("Элемент не найден");
+            }
+        } else {
+            System.out.println("Ошибка: введено не целое число.");
+        }
+        System.out.println();
+    }
+
+    /**
+     * Задача 6: Разворот массива (Reverse)
+     * Напиши код, который "переворачивает" массив без создания второго массива.
+     */
+    public static void task6() {
+        System.out.println("--- Задача 6 ---");
+        int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+
+        System.out.print("Исходный массив: ");
+        for (int n : numbers) System.out.print(n + " ");
+        System.out.println();
+
+        // Разворот массива методом двух указателей
+        for (int i = 0; i < numbers.length / 2; i++) {
+            int temp = numbers[i];
+            numbers[i] = numbers[numbers.length - 1 - i];
+            numbers[numbers.length - 1 - i] = temp;
+        }
+
+        System.out.print("Развернутый массив: ");
+        for (int n : numbers) System.out.print(n + " ");
+        System.out.println("\n");
+    }
+}
